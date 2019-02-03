@@ -1,0 +1,71 @@
+{{> header}}
+<style>
+    body {
+        text-align: center;
+    }
+
+    #photos {
+        height: 300px;
+        width: 300px;
+    }
+
+    #rightArrow {
+        font-size: 50px;
+    }
+
+    #leftArrow {
+        font-size: 50px;
+    }
+
+    #gameStart {
+        background-color: cadetblue;
+        color: orange;
+        font-size: 40px;
+        width: 200px;
+        text-align: center;
+        margin: auto;
+    }
+
+    h3 {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    ul {
+        list-style: none;
+    }
+</style>
+<h3>Here We Will Change The Content Of Some Things</h3>
+<h4>My List</h4>
+<p id="changeContent">Hover To Change Content</p>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+<script>
+    let listItems = [...document.querySelectorAll('li')]
+    document.getElementById('changeContent').addEventListener('mouseover',
+        () => {
+            let answer;
+            answer = prompt('Do you want to change the content? Please Write Yes or No')
+            if (answer === 'Yes') {
+                changeContent()
+            } else if (answer === 'No') {
+                alert('Maybe next time!')
+            }
+        }
+    )
+
+    let changeContent = () => {
+        let counter = 1
+        listItems.forEach(
+            (item) => {
+                item.textContent = prompt(`What would you like in item ${counter}?`)
+                counter++
+            }
+        )
+    }
+</script>
+{{> footer}}
